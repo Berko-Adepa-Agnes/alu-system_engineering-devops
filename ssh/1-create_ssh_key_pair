@@ -1,27 +1,4 @@
 #!/usr/bin/env bash
-# A Bash script that creates an RSA key pair.
+#j Write a Bash script that creates an RSA key pair.
 
-# Specify the type of key (RSA), the number of bits, the output file, and the passphrase
-KEY_TYPE="rsa"
-BITS=4096
-OUTPUT_FILE="school"
-PASSPHRASE="betty"
-
-# Print debugging information
-echo "Generating an RSA key pair..."
-echo "Key type: $KEY_TYPE"
-echo "Bits: $BITS"
-echo "Output file: $OUTPUT_FILE"
-echo "Passphrase: [hidden]"
-
-# Run ssh-keygen with the specified parameters
-ssh-keygen -t $KEY_TYPE -b $BITS -f $OUTPUT_FILE -N $PASSPHRASE
-
-# Check if the files were created successfully
-if [[ -f "$OUTPUT_FILE" && -f "$OUTPUT_FILE.pub" ]]; then
-    echo "RSA key pair generated successfully."
-    echo "Private key: $OUTPUT_FILE"
-    echo "Public key: $OUTPUT_FILE.pub"
-else
-    echo "Failed to generate RSA key pair."
-fi
+ssh-keygen -t rsa -b 4096 -P betty -f school
